@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>homedonate</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+</head>
+<body>
+<section>
+    <div class="container">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <a class="text-muted" href="#">Subscribe</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" href="#">Large</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="text-muted" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+                    </a>
+                    <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 font-italic">Making a donation is the ultimate sign of solidarity</h1>
+                <p class="lead my-3">Help others without any reason and give without the expectation of receiving anything in return.</p>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <h3 class="mb-0">
+                            <p class="text-dark">Send Donation</p>
+                        </h3>
+                        <p class="card-text mb-auto">See how you can make a difference in families lives.These donations will be used for various purposes.</p>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" width="300" height="250" src="/img/donate2.png" alt="Card image cap">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-success">Happy</strong>
+                        <h3 class="mb-0">
+                            <p class="text-dark" href="#">Spread Happiness</p>
+                        </h3>
+                        <p class="card-text mb-auto">There are so many people,sleeping without food,we all together can make their lives with happiness</p>
+
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" width="300" height="250" src="/img/africa.jpg"  data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <div class="blog-post">
+                    <h2 class="blog-post-title">Importance of Donation</h2>
+                    <p>When we donate to a charitable organization, we help make the difference we’re unable to provide with our own hands. Consequently, social impact organizations don’t just work to achieve their mission—they also empower individuals to effect change. They mobilize people to play a part in making the world a better place.</p>
+                    <hr>
+                    <p>A donation is a gift for charity, humanitarian aid, or to benefit a cause. A donation may take various forms, including money, alms, services, or goods such as clothing, toys, food, or vehicles. A donation may satisfy medical needs such as blood or organs for transplant.
+
+                        Charitable donations of goods or services are also called gifts in kind.</p>
+                    <p>Without established connections to local communities, transnational or national Canadian charities are at a disadvantage in understanding and addressing local needs, particularly in rural areas, which are all too frequently ignored and under-served. Data-driven, evidence-based solutions designed by local community voices can build momentum toward post-pandemic recovery — with adequate funding and supportive policy.
+
+                       <p> Issues persist in the sector with local, place-based organizations working hard to retain adequate funding to meet the demand for services in their region. Arthur Bull, the former chairman of the Rural Communities Foundation of Nova Scotia, says that despite local pockets of wealth across Canada, the reality is that “very little [wealth] goes to helping people build vibrant communities, dealing with local issues.”</p>
+
+                        <p>Community foundations are uniquely connected to help address this gap within their local service areas and therefore have the potential to effectively facilitate recovery efforts post-pandemic.</p>
+                </div><!-- /.blog-main -->
+            </div><!-- /.row -->
+        </div>
+
+        <br>
+        <br>
+
+        <h3>Make a Donation</h3>
+        <br>
+
+        <p>Click here to Donate</p>
+        <br>
+
+        <a href="#" type="button" class="btn btn-success" th:href="@{/user/donate}">Donate Now</a>
+
+
+    </main><!-- /.container -->
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="container py-5">
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="img/logo.png" alt="" width="180" class="mb-3">
+                    <p class="font-italic text-muted">WeCare is NGO Foundation,we serve for the people who are in need of help.</p>
+                    <ul class="list-inline mt-4">
+                        <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Services</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">Donate</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Become VOlunteer</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Campaigns</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Our Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Foundation</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">Login</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Register</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Our Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
+                    <div class="p-1 rounded border">
+                        <div class="input-group">
+                            <input type="email" placeholder="Enter your email address" aria-describedby="button-addon1" class="form-control border-0 shadow-0">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyrights -->
+        <div class="bg-light py-4">
+            <div class="container text-center">
+                <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- End -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+
+
+</section>
+</body>
+</html>
