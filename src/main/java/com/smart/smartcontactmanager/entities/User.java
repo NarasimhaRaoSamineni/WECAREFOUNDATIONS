@@ -47,6 +47,10 @@ public class User
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Contact> contacts=new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<Volunteer> volunteers=new ArrayList<>();
+
+
     public User() {
         super();
     }
@@ -122,4 +126,15 @@ public class User
     public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
     }
+
+
+    public List<Volunteer> getVolunteers() {
+        return volunteers;
+    }
+
+    public void setVolunteers(List<Volunteer> volunteers) {
+        this.volunteers = volunteers;
+    }
+
+
 }
