@@ -2,8 +2,10 @@ package com.smart.smartcontactmanager.controller;
 
 import com.smart.smartcontactmanager.dao.ContactRepository;
 import com.smart.smartcontactmanager.dao.UserRepository;
+import com.smart.smartcontactmanager.dao.VolunteerRepository;
 import com.smart.smartcontactmanager.entities.Contact;
 import com.smart.smartcontactmanager.entities.User;
+import com.smart.smartcontactmanager.entities.Volunteer;
 import com.smart.smartcontactmanager.helper.Message;
 import com.smart.smartcontactmanager.service.VolunteerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,9 @@ public class UserController {
 
     @Autowired
     private VolunteerService volunteerService;
+
+    @Autowired
+    private VolunteerRepository volunteerRepository;
 
     //method for hiding common data to response
     @ModelAttribute
@@ -120,6 +125,9 @@ public class UserController {
         return "admin/add_contact_form";
     }
 
+
+
+
     //show contacts
     //per page=5[n]
     //current page=0[page]
@@ -181,6 +189,28 @@ public class UserController {
 
     }
 
+    @GetMapping("/deletes/{vid}")
+    public String deleteRequest(@PathVariable("vid") Integer vId,Model model,HttpSession session,Principal principal)
+    {
+        Optional<Volunteer> volunteerOptional=this.volunteerRepository.findById(vId);
+
+        System.out.println("VID "+vId);
+
+        Volunteer volunteer=this.volunteerRepository.findById(vId).get();
+
+        volunteerRepository.delete(volunteer);
+
+
+
+        System.out.println("Deleted");
+        session.setAttribute("message",new Message("Contact successfully Deleted...","success"));
+
+        return "redirect:/admin/requests/";
+
+
+    }
+
+
     //open update form handler
     @PostMapping("/update-contact/{cid}")
     public String updateForm(@PathVariable("cid") Integer cid,Model m)
@@ -192,6 +222,70 @@ public class UserController {
         m.addAttribute("contact",contact);
 
         return "admin/update_form";
+    }
+
+
+    @PostMapping("/add-volunteer/{vid}")
+    public String addForm(@PathVariable("vid") Integer vid,Model m)
+    {
+        m.addAttribute("title","add Volunteer");
+
+        Volunteer volunteer=this.volunteerRepository.findById(vid).get();
+
+        m.addAttribute("volunteer",volunteer);
+
+        return "admin/add_form";
+    }
+
+    @RequestMapping(value="/process-add",method = RequestMethod.POST)
+    public String addHandler(@ModelAttribute Volunteer volunteer,@RequestParam("profileImage") MultipartFile file,Model m,HttpSession session,Principal principal)
+    {
+
+        try{
+
+            String name = principal.getName();
+            User user = this.userRepository.getUserByUserName(name);
+
+            //old contact details
+            Volunteer oldcontactDetail1=this.volunteerRepository.findById(volunteer.getvId()).get();
+
+            if(!file.isEmpty())
+            {
+                //rewrite
+
+                //delete old photo
+
+                File deletefile=new ClassPathResource("static/img").getFile();
+                File file1=new File(deletefile,oldcontactDetail1.getImage());
+                file1.delete();
+                //update new photo
+                File savefile=new ClassPathResource("static/img").getFile();
+                Path path=Paths.get(savefile.getAbsolutePath()+File.separator+file.getOriginalFilename());
+                Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
+                volunteer.setImage(file.getOriginalFilename());
+            }
+            else
+            {
+                volunteer.setImage(oldcontactDetail1.getImage());
+            }
+
+
+            volunteer.setUser(user);
+            user.getVolunteers().add(volunteer);
+            this.userRepository.save(user);
+            System.out.println("DATA " + volunteer);
+            System.out.println("Added to data base");
+
+
+            session.setAttribute("message",new Message("your contact is updated :)","success"));
+
+        }catch(Exception e)
+        {
+
+        }
+
+
+        return "admin/add_form";
     }
 
 
