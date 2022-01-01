@@ -144,7 +144,7 @@ public class NormalController {
             Donate result3 = this.donateRepository.save(donate);
             model.addAttribute("donate", result3);
 
-            return "normal/donate";
+            return "normal/terms";
         }
         catch(Exception e)
         {
@@ -168,5 +168,12 @@ public class NormalController {
     {
         m.addAttribute("title","Campaigns");
         return "normal/campaigns";
+    }
+
+    @RequestMapping("/termsandconditions")
+    public String terms(Model m)
+    {
+        m.addAttribute("title","terms and conditions");
+        return "normal/terms";
     }
 }
