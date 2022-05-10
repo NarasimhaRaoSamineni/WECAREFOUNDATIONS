@@ -11,6 +11,7 @@
 	<groupId>com.smart</groupId>
 	<artifactId>smartcontactmanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>smartcontactmanager</name>
 	<description>first spring boot project</description>
 	<properties>
@@ -71,7 +72,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<packaging>war</packaging>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
