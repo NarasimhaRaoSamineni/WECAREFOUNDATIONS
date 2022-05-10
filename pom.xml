@@ -71,6 +71,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<packaging>war</packaging>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
