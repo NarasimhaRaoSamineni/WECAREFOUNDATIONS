@@ -1,9 +1,11 @@
 package com.smart.smartcontactmanager.controller;
 
 
+import com.smart.smartcontactmanager.dao.ContactusRepository;
 import com.smart.smartcontactmanager.dao.DonateRepository;
 import com.smart.smartcontactmanager.dao.UserRepository;
 import com.smart.smartcontactmanager.dao.VolunteerRepository;
+import com.smart.smartcontactmanager.entities.Contactus;
 import com.smart.smartcontactmanager.entities.Donate;
 import com.smart.smartcontactmanager.entities.User;
 import com.smart.smartcontactmanager.entities.Volunteer;
@@ -37,6 +39,9 @@ public class NormalController {
 
     @Autowired
     private DonateRepository donateRepository;
+
+    @Autowired
+    private ContactusRepository contactusRepository;
 
     @ModelAttribute
     public void addCommonData(Model model,Principal principal)
@@ -144,7 +149,7 @@ public class NormalController {
             Donate result3 = this.donateRepository.save(donate);
             model.addAttribute("donate", result3);
 
-            return "normal/donate";
+            return "normal/terms";
         }
         catch(Exception e)
         {
@@ -168,5 +173,47 @@ public class NormalController {
     {
         m.addAttribute("title","Campaigns");
         return "normal/campaigns";
+    }
+
+    @RequestMapping("/termsandconditions")
+    public String terms(Model m)
+    {
+        m.addAttribute("title","terms and conditions");
+        return "normal/terms";
+    }
+
+    @RequestMapping("/contactus")
+    public String contact(Model m)
+    {
+        m.addAttribute("title","Contact us");
+        m.addAttribute("contactus",new Contactus());
+        return "normal/contact";
+    }
+
+    @RequestMapping(value="/do_contactus",method= RequestMethod.POST)
+    public String registercontactus(@Valid @ModelAttribute("contactus") Contactus contactus,
+                                    BindingResult result2, Model model, Principal principal)
+    {
+        try {
+
+            if(result2.hasErrors())
+            {
+                System.out.println("ERROR "+result2.toString());
+                model.addAttribute("contactus",contactus);
+                return "normal/contact";
+            }
+            System.out.println("Contactus " + contactus);
+            Contactus result3 = this.contactusRepository.save(contactus);
+            model.addAttribute("contactus", result3);
+
+            return "normal/contact";
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            model.addAttribute("contactus",contactus);
+            return "normal/contact";
+        }
+
     }
 }

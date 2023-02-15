@@ -3,12 +3,12 @@ package com.smart.smartcontactmanager.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="DONATE")
-public class Donate {
+@Table(name="CONTACTUS")
+public class Contactus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int dId;
+    private int cuId;
     private String name;
     private String secondName;
     private String work;
@@ -17,17 +17,29 @@ public class Donate {
     @Column(length=5000)
     private String description;
 
+    @Override
+    public String toString() {
+        return "Contactus{" +
+                "cuId=" + cuId +
+                ", name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", work='" + work + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
-    public Donate() {
+    public Contactus() {
         super();
     }
 
-    public int getdId() {
-        return dId;
+    public int getcuId() {
+        return cuId;
     }
 
-    public void setdId(int dId) {
-        this.dId = dId;
+    public void setcuId(int cuId) {
+        this.cuId = cuId;
     }
 
     public String getName() {
@@ -74,25 +86,10 @@ public class Donate {
         return description;
     }
 
-
     public void setDescription(String description) {
         this.description = description;
     }
 
 
-    @Override
-    public String toString() {
-        return "Donate{" +
-                "dId=" + dId +
-                ", name='" + name + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", work='" + work + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
-
 
 }
-

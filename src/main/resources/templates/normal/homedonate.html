@@ -114,11 +114,11 @@
 
 
     <!-- Footer -->
-    <footer class="bg-white">
+    <footer class="bg-dark text-light">
         <div class="container py-5">
             <div class="row py-4">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="img/logo.png" alt="" width="180" class="mb-3">
-                    <p class="font-italic text-muted">WeCare is NGO Foundation,we serve for the people who are in need of help.</p>
+                    <p class="font-italic text-muted-light">WeCare is NGO Foundation, We serve for the people who are in need of help.</p>
                     <ul class="list-inline mt-4">
                         <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -130,18 +130,18 @@
                 <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                     <h6 class="text-uppercase font-weight-bold mb-4">Services</h6>
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><a href="#" class="text-muted">Donate</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted">Become VOlunteer</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted">Campaigns</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted">Our Blog</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/user/homedonater}" class="text-muted-light">Donate</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/user/volunteer}" class="text-muted-light">Become Volunteer</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/user/campaigns}" class="text-muted-light">Campaigns</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/user/about}" class="text-muted-light">Our Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                     <h6 class="text-uppercase font-weight-bold mb-4">Foundation</h6>
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><a href="#" class="text-muted">Login</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted">Register</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted">Our Services</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/signin}" class="text-muted-white">Login</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/signup}" class="text-muted-light">Register</a></li>
+                        <li class="mb-2"><a href="#" th:href="@{/user/campaigns}" class="text-muted-light">Our Services</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-lg-0">
@@ -161,7 +161,7 @@
         <!-- Copyrights -->
         <div class="bg-light py-4">
             <div class="container text-center">
-                <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
+                <p class="text-muted-light mb-0 py-2">©2022 WeCare All rights reserved.</p>
             </div>
         </div>
     </footer>

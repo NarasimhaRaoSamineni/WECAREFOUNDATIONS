@@ -9,14 +9,14 @@
     <div class="card mr-3">
         <div class="card-body">
             <h1 class="text-center">
-                Update Contact
+                Add Contact
             </h1>
             <div class="container-fluid mt-1">
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
-                        <form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST" th:action="@{/admin/process-update}" class=""mt-2>
+                        <form action="#" th:object="${volunteer}" enctype="multipart/form-data" method="POST" th:action="@{/admin/process-contact}" class=""mt-2>
 
-                            <input type="hidden" th:value="${contact.cId}" name="cId"/>
+                            <input type="hidden" th:value="${volunteer.vId}" name="vId"/>
                             <!--First Name-->
                             <div class="input-group">
                                 <div class=input-group-prepend"">
@@ -24,7 +24,7 @@
                                         <i class="fa fa-plus"></i>
                                     </div>
                                 </div>
-                                <input th:value="${contact.name}" required type="text" id="firstName" name="name" placeholder="Enter Name Here" class="form-control"/>
+                                <input th:value="${volunteer.name}" required type="text" id="firstName" name="name" placeholder="Enter Name Here" class="form-control"/>
                             </div>
 
                             <!--Second Name-->
@@ -34,7 +34,7 @@
                                         <i class="fas fa-user-alt"></i>
                                     </div>
                                 </div>
-                                <input th:value="${contact.secondName}" required type="text" id="secondName" name="secondName" placeholder="Enter Second Name Here" class="form-control"/>
+                                <input th:value="${volunteer.secondName}" required type="text" id="secondName" name="secondName" placeholder="Enter Second Name Here" class="form-control"/>
                             </div>
 
                             <!--phone-->
@@ -44,7 +44,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                 </div>
-                                <input th:value="${contact.phone}" required type="number" id="phone" name="phone" placeholder="Enter Phone Number Here" class="form-control"/>
+                                <input th:value="${volunteer.phone}" required type="number" id="phone" name="phone" placeholder="Enter Phone Number Here" class="form-control"/>
                             </div>
 
                             <!--EMAIL-->
@@ -55,7 +55,7 @@
                                         @
                                     </div>
                                 </div>
-                                <input th:value="${contact.email}" required type="email" id="email" name="email" placeholder="Enter email Here" class="form-control"/>
+                                <input th:value="${volunteer.email}" required type="email" id="email" name="email" placeholder="Enter email Here" class="form-control"/>
                             </div>
 
                             <!--work field-->
@@ -65,18 +65,18 @@
                                         <i class="fa fa-briefcase"></i>
                                     </div>
                                 </div>
-                                <input th:value="${contact.work}" required type="text" id="work" name="work" placeholder="Enter work here" class="form-control"/>
+                                <input th:value="${volunteer.work}" required type="text" id="work" name="work" placeholder="Enter work here" class="form-control"/>
                             </div>
 
                             <!--Contact Description-->
                             <div class="form-group mt-3">
-                                <textarea th:text="${contact.description}" id="mytextarea" placeholder="Enter contact Description" name="description" class="form-control" rows="10"></textarea>
+                                <textarea th:text="${volunteer.description}" id="mytextarea" placeholder="Enter contact Description" name="description" class="form-control" rows="10"></textarea>
                             </div>
 
                             <!--Contact Image-->
 
                             <div class="container text-center">
-                                <img style="width: 250px;height : 250px" class="img-fluid my_profile_picture" src="" th:src="@{'/img/'+${contact.image}}" alt="" />
+                                <img style="width: 250px;height : 250px" class="img-fluid my_profile_picture" src="" th:src="@{'/img/'+${volunteer.image}}" alt="" />
                             </div>
 
                             <p>Choose new Profile Pic</p>

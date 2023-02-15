@@ -12,7 +12,7 @@
         <div class="card-body">
     <div align="center" class="container my-2">
         <h1>Requests For Volunteers</h1>
-        <table border="1" class="table table-striped table-responsive-md">
+        <table border="10" id="table" class="table table-striped table-responsive-md">
             <thead>
             <tr>
                 <th>Volunteer id</th>
@@ -36,6 +36,13 @@
                 <td th:text="${volunteer.work}"></td>
                 <td th:text="${volunteer.image}"></td>
                 <td th:utext="${volunteer.description}"></td>
+                <td>
+                    <a th:href="@{'/admin/deletes/'+${volunteer.vId}}" class="btn btn-danger">Delete</a>
+                    <form method="post" th:action="@{'/admin/add-volunteer/'+${volunteer.vId}}" class="mt-2">
+                        <button type="submit" class="btn btn-primary">ADD</button>
+                    </form>
+
+                </td>
             </tr>
             </tbody>
         </table>

@@ -12,6 +12,20 @@
                  <a class="btn bg-warning btn-lg text-white" th:href="@{/signin}">Get Started</a>
              </div>
 
+       <script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "161812c3-d677-4551-91c4-e7cbed1b2d9b", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "39ab083a-418e-4b1d-bf5c-565c342bde5d", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
+    document.head.appendChild(t);
+  });
+</script>
+
    </section>
 </body>
 </html>

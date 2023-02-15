@@ -18,6 +18,17 @@ public class Volunteer {
     @Column(length=5000)
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     public Volunteer() {
         super();
@@ -85,6 +96,12 @@ public class Volunteer {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return this.vId==((Volunteer)obj).getvId();
     }
 
 
